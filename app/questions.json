@@ -1,0 +1,976 @@
+[
+  {
+    "title": "Cadastro e motivo da consulta",
+    "description": "Seus dados ajudam a organizar uma avaliação individualizada.",
+    "fields": [
+      {
+        "id": "name",
+        "label": "Nome completo",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "preferred",
+        "label": "Como gostaria de ser chamado(a)?",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "birth",
+        "label": "Data de nascimento",
+        "type": "date",
+        "required": true
+      },
+      {
+        "id": "cpf",
+        "label": "CPF",
+        "type": "cpf",
+        "required": true
+      },
+      {
+        "id": "zip",
+        "label": "CEP",
+        "type": "cep",
+        "required": true
+      },
+      {
+        "id": "street",
+        "label": "Rua, avenida ou estrada",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "number",
+        "label": "Número (ou escreva “sem número”)",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "complement",
+        "label": "Complemento — apartamento, bloco ou ponto de referência, se houver",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "district",
+        "label": "Bairro",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "city",
+        "label": "Cidade",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "state",
+        "label": "Estado",
+        "type": "text",
+        "required": true
+      },
+      {
+        "id": "profession",
+        "label": "Qual é sua profissão ou ocupação atual?",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "referral",
+        "label": "Quem nos indicou para você? (ou “não houve indicação”)",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "source",
+        "label": "Como nos conheceu?",
+        "type": "multi",
+        "required": false,
+        "options": [
+          "Indicação",
+          "Instagram",
+          "Google",
+          "Facebook",
+          "Já sou paciente",
+          "Outro"
+        ]
+      },
+      {
+        "id": "sourceOther",
+        "label": "Se selecionou outro, conte como nos conheceu",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "goal",
+        "label": "Qual o objetivo da consulta? Conte o que motivou sua consulta, o que mais incomoda e o que espera melhorar.",
+        "type": "textarea",
+        "required": true
+      },
+      {
+        "id": "phone",
+        "label": "Telefone para contato",
+        "type": "tel",
+        "required": false
+      },
+      {
+        "id": "email",
+        "label": "E-mail",
+        "type": "email",
+        "required": true
+      }
+    ]
+  },
+  {
+    "title": "Profissionais e medicamentos",
+    "description": "Conte quem acompanha sua saúde e quais medicamentos você utiliza.",
+    "fields": [
+      {
+        "id": "doctorFollowup",
+        "label": "Você é acompanhado(a) por algum médico?",
+        "type": "professionalGate",
+        "required": true
+      },
+      {
+        "id": "doctor",
+        "label": "Nome do médico",
+        "type": "professionalName",
+        "required": false
+      },
+      {
+        "id": "specialty",
+        "label": "Especialidade do médico",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "doctorContact",
+        "label": "Endereço e telefone do médico",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "doctorExtras",
+        "label": "Outros médicos que acompanham você",
+        "type": "professionals",
+        "required": false
+      },
+      {
+        "id": "otherDoctor",
+        "label": "Outro médico",
+        "type": "legacyProfessional",
+        "required": false
+      },
+      {
+        "id": "otherDoctorSpecialty",
+        "label": "Especialidade — outro médico",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "otherDoctorContact",
+        "label": "Endereço e telefone — outro médico",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "meds",
+        "label": "Você usa algum medicamento regularmente?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "medicationEntries",
+        "label": "Medicamentos em uso",
+        "type": "medications",
+        "required": false,
+        "parent": "meds"
+      },
+      {
+        "id": "diagnosis",
+        "label": "Algum profissional já informou que você tem um problema na articulação da mandíbula, que fica à frente do ouvido (ATM)?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "diagnosisDetail",
+        "label": "Qual foi o diagnóstico e qual profissional o fez?",
+        "type": "textarea",
+        "required": true,
+        "parent": "diagnosis"
+      },
+      {
+        "id": "diagnosisNotes",
+        "label": "Comentários sobre o diagnóstico",
+        "type": "textarea",
+        "required": false,
+        "parent": "diagnosis"
+      },
+      {
+        "id": "dentistFollowup",
+        "label": "Você é acompanhado(a) por algum dentista?",
+        "type": "professionalGate",
+        "required": true
+      },
+      {
+        "id": "dentist",
+        "label": "Nome do dentista",
+        "type": "professionalName",
+        "required": false
+      },
+      {
+        "id": "dentistSpecialty",
+        "label": "Especialidade do dentista, se souber",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "dentistContact",
+        "label": "Endereço e telefone do dentista",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "dentistExtras",
+        "label": "Outros dentistas que acompanham você",
+        "type": "professionals",
+        "required": false
+      },
+      {
+        "id": "diagnosisDate",
+        "label": "Quando recebeu esse diagnóstico?",
+        "type": "text",
+        "required": false,
+        "parent": "diagnosis"
+      },
+      {
+        "id": "diagnosisSource",
+        "label": "Esse diagnóstico foi informado pelo profissional ou consta em documento?",
+        "type": "text",
+        "required": false,
+        "parent": "diagnosis"
+      },
+      {
+        "id": "treatments",
+        "label": "Você já fez algum tratamento para esse problema? Conte qual, com quem, quando, por quanto tempo e se ajudou.",
+        "type": "textarea",
+        "required": false
+      },
+      {
+        "id": "exams",
+        "label": "Você já fez exames para investigar esse problema? Conte qual exame, quando fez, qual parte do corpo foi examinada e o resultado, se souber.",
+        "type": "textarea",
+        "required": false
+      }
+    ]
+  },
+  {
+    "title": "Sua saúde geral",
+    "description": "Marque uma resposta em cada item. Os detalhes aparecem quando necessários.",
+    "fields": [
+      {
+        "id": "health0",
+        "label": "Sofreu alguma pancada ou queda na infância?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health1",
+        "label": "Você faz ou já fez acompanhamento com psicólogo?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health2",
+        "label": "Você tem algum problema no coração?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health3",
+        "label": "Você tem pressão alta?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "lowPressure",
+        "label": "Tem pressão baixa?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health4",
+        "label": "Tem dor no peito ou problemas para respirar?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health5",
+        "label": "Seus tornozelos incham?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health6",
+        "label": "Você tem ou já teve anemia?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health7",
+        "label": "Você tem ou já teve ansiedade ou outras dificuldades emocionais?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health8",
+        "label": "Você sente cansaço ou dificuldade para respirar?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health9",
+        "label": "Sofre de asma, rinite ou alergias?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health10",
+        "label": "Teve problemas de amígdalas ou adenoides?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health11",
+        "label": "Você já fez cirurgia para retirar as amígdalas ou a adenoide, também conhecida como “carne esponjosa”?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health12",
+        "label": "Algum profissional já informou que você tem artrite, uma inflamação nas articulações?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health13",
+        "label": "Toma vitaminas ou minerais?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health14",
+        "label": "Consegue dormir bem?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health15",
+        "label": "Ronca?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health16",
+        "label": "Sente cansaço frequentemente?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health17",
+        "label": "Tem problema de respiração quando dorme?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health18",
+        "label": "Você costuma usar vários travesseiros para dormir?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health19",
+        "label": "Toma café da manhã?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health20",
+        "label": "Fuma ou consome tabaco?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "health21",
+        "label": "Você tem diagnóstico de hemofilia, uma doença que dificulta a coagulação do sangue?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "systemic",
+        "label": "Já recebeu diagnóstico de doença reumatológica, autoimune ou inflamatória?",
+        "type": "yes",
+        "required": false
+      },
+      {
+        "id": "systemicDetail",
+        "label": "Qual doença foi diagnosticada ou está sendo investigada? Quando isso começou? Você faz acompanhamento ou tratamento?",
+        "type": "textarea",
+        "required": false,
+        "parent": "systemic"
+      },
+      {
+        "id": "otherJoints",
+        "label": "Você sente dor, inchaço ou dificuldade para movimentar outras articulações, como joelhos, mãos ou quadris?",
+        "type": "yes",
+        "required": false
+      },
+      {
+        "id": "otherJointsDetail",
+        "label": "Em quais locais isso acontece? Há quanto tempo? Ao acordar, quanto tempo leva para conseguir movimentá-los normalmente?",
+        "type": "textarea",
+        "required": false,
+        "parent": "otherJoints"
+      },
+      {
+        "id": "family",
+        "label": "Alguém da sua família tem alguma doença diagnosticada?",
+        "type": "yes",
+        "required": false
+      },
+      {
+        "id": "familyDetail",
+        "label": "Qual é a doença e qual é seu parentesco com essa pessoa? Como você soube do diagnóstico? Não precisa informar nomes.",
+        "type": "textarea",
+        "required": false,
+        "parent": "family"
+      }
+    ]
+  },
+  {
+    "title": "Histórico de saúde",
+    "description": "Doenças, tratamentos e acontecimentos que merecem atenção.",
+    "fields": [
+      {
+        "id": "sick",
+        "label": "Está frequentemente doente?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "sickDetail",
+        "label": "Quais doenças tem com frequência?",
+        "type": "textarea",
+        "required": true,
+        "parent": "sick"
+      },
+      {
+        "id": "rheumatic",
+        "label": "Tem ou teve febre reumática?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "rheumaticDetail",
+        "label": "Quando teve febre reumática?",
+        "type": "textarea",
+        "required": true,
+        "parent": "rheumatic"
+      },
+      {
+        "id": "trauma",
+        "label": "Você já sofreu alguma pancada ou lesão em quedas, acidentes, esportes, agressões ou brincadeiras?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "traumaDetail",
+        "label": "Qual foi a pancada ou lesão e quando aconteceu?",
+        "type": "textarea",
+        "required": true,
+        "parent": "trauma"
+      },
+      {
+        "id": "diabetes",
+        "label": "Tem diabetes?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "allergy",
+        "label": "É alérgico(a) a algum medicamento ou substância?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "allergyDetail",
+        "label": "Quais medicamentos ou substâncias e qual reação?",
+        "type": "textarea",
+        "required": true,
+        "parent": "allergy"
+      },
+      {
+        "id": "tb",
+        "label": "Teve tuberculose?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "tbDetail",
+        "label": "Quando teve tuberculose?",
+        "type": "textarea",
+        "required": true,
+        "parent": "tb"
+      },
+      {
+        "id": "hepatitis",
+        "label": "Teve hepatite?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "hepatitisDetail",
+        "label": "Quando teve hepatite e quando foi tratado(a)?",
+        "type": "textarea",
+        "required": true,
+        "parent": "hepatitis"
+      },
+      {
+        "id": "surgery",
+        "label": "Fez alguma cirurgia?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "surgeryDetail",
+        "label": "Qual cirurgia e quando?",
+        "type": "textarea",
+        "required": true,
+        "parent": "surgery"
+      },
+      {
+        "id": "weight",
+        "label": "Você ganhou ou perdeu bastante peso recentemente?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "weightDetail",
+        "label": "Quanto peso ganhou ou perdeu e em quanto tempo?",
+        "type": "textarea",
+        "required": true,
+        "parent": "weight"
+      },
+      {
+        "id": "diet",
+        "label": "Você segue alguma dieta ou orientação alimentar indicada por um médico?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "dietDetail",
+        "label": "Qual é o objetivo dessa dieta ou orientação alimentar?",
+        "type": "textarea",
+        "required": true,
+        "parent": "diet"
+      },
+      {
+        "id": "alcohol",
+        "label": "Consome álcool?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "alcoholDetail",
+        "label": "Quando e com que frequência?",
+        "type": "textarea",
+        "required": true,
+        "parent": "alcohol"
+      },
+      {
+        "id": "accident",
+        "label": "Teve algum acidente sério?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "accidentDetail",
+        "label": "Quando aconteceu o acidente e quais machucados ou lesões você teve?",
+        "type": "textarea",
+        "required": true,
+        "parent": "accident"
+      },
+      {
+        "id": "accidentSymptoms",
+        "label": "Apareceram sintomas logo depois do acidente?",
+        "type": "yes",
+        "required": false,
+        "parent": "accident"
+      },
+      {
+        "id": "accidentSymptomsDetail",
+        "label": "Quais foram esses sintomas?",
+        "type": "textarea",
+        "required": true,
+        "parent": "accidentSymptoms"
+      },
+      {
+        "id": "work",
+        "label": "Associa os sintomas ao trabalho ou a um acidente?",
+        "type": "yes",
+        "required": false
+      },
+      {
+        "id": "workDetail",
+        "label": "Quais sintomas e qual relação você percebe?",
+        "type": "textarea",
+        "required": true,
+        "parent": "work"
+      },
+      {
+        "id": "hysterectomy",
+        "label": "Se for mulher: você já fez cirurgia para remoção do útero?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "cold",
+        "label": "O frio provoca ou piora suas dores?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "hiv",
+        "label": "Vive com HIV?",
+        "type": "yes",
+        "required": false
+      },
+      {
+        "id": "aids",
+        "label": "Já recebeu diagnóstico de aids?",
+        "type": "yes",
+        "required": false
+      }
+    ]
+  },
+  {
+    "title": "Hábitos e postura",
+    "description": "Pequenos hábitos também fazem parte da sua história.",
+    "fields": [
+      {
+        "id": "nails",
+        "label": "Rói unhas?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "oral0",
+        "label": "Você range os dentes ou alguém já percebeu que você faz isso?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "oral1",
+        "label": "Ao fechar a boca, você percebe que algum dente encosta antes dos demais?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "oral2",
+        "label": "Você costuma mascar chicletes ou mastigar balas?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "oral3",
+        "label": "Você costuma morder lápis ou caneta?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "oral4",
+        "label": "Você percebe que fica apertando os dentes, mesmo quando não está mastigando?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "oral5",
+        "label": "Você costuma segurar ou morder o cigarro entre os dentes?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "oral7",
+        "label": "Você usa palito de dentes?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "oralTime",
+        "label": "Você percebe que range ou aperta os dentes enquanto está acordado, durante o sono ou nos dois períodos? Se souber, conte em quais momentos.",
+        "type": "textarea",
+        "required": false
+      },
+      {
+        "id": "oralNotes",
+        "label": "Comentários sobre os hábitos citados",
+        "type": "textarea",
+        "required": false
+      },
+      {
+        "id": "posture0",
+        "label": "Você costuma prender o telefone entre a cabeça e o ombro?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "posture1",
+        "label": "Assiste muita televisão?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "posture2",
+        "label": "Você costuma apoiar a cabeça ou o queixo na mão ou no braço?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "posture3",
+        "label": "Você costuma levantar ou carregar objetos pesados, no trabalho, em casa ou nos exercícios?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "posture4",
+        "label": "Carrega malas e/ou bolsas?",
+        "type": "yes",
+        "required": true
+      },
+      {
+        "id": "postureNotes",
+        "label": "Outros hábitos posturais",
+        "type": "textarea",
+        "required": false
+      }
+    ]
+  },
+  {
+    "title": "Sintomas e frequência",
+    "description": "Para cada sintoma, informe primeiro a frequência e depois em qual lado você sente.",
+    "fields": [
+      {
+        "id": "symptom0",
+        "label": "Dificuldade para abrir a boca",
+        "type": "frequency",
+        "required": true
+      },
+      {
+        "id": "symptom1",
+        "label": "Dificuldade para engolir",
+        "type": "frequency",
+        "required": true
+      },
+      {
+        "id": "symptom2",
+        "label": "Você sente a nuca presa ou dificuldade para movimentar o pescoço?",
+        "type": "frequency",
+        "required": true
+      },
+      {
+        "id": "symptom3",
+        "label": "Dificuldade em mastigar",
+        "type": "frequency",
+        "required": true
+      },
+      {
+        "id": "symptom4",
+        "label": "Debilidade nos dentes",
+        "type": "frequency",
+        "required": true
+      },
+      {
+        "id": "symptom5",
+        "label": "Enxaquecas",
+        "type": "frequency",
+        "required": true
+      },
+      {
+        "id": "teeth",
+        "label": "Se tem debilidade nos dentes, em quais?",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "pain0",
+        "label": "Você sente dor no topo da cabeça? Com que frequência?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain1",
+        "label": "Você sente dor na frente da cabeça (testa)? Com que frequência?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain2",
+        "label": "Você sente dor na região das sobrancelhas? Com que frequência?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain3",
+        "label": "Você sente dor atrás dos olhos? Com que frequência?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain4",
+        "label": "Você sente dor nos ombros? Com que frequência?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain5",
+        "label": "Você sente dor à frente do ouvido, na região onde a mandíbula se movimenta?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain6",
+        "label": "Ao abrir ou fechar a boca, você percebe um “clique” ou estalo perto do ouvido?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain7",
+        "label": "Você sente o ouvido tampado ou abafado?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain8",
+        "label": "Você percebe zumbido, chiado ou apito no ouvido, mesmo quando não há barulho ao redor?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain9",
+        "label": "Você sente dor em outras regiões do rosto? Com que frequência?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain10",
+        "label": "Ao abrir ou fechar a boca, você percebe um barulho de areia ou de algo raspando perto do ouvido?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain11",
+        "label": "Você sente como se você ou o ambiente ao redor estivesse girando?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "pain12",
+        "label": "Você percebe algum músculo tremendo sem conseguir controlar?",
+        "type": "sided",
+        "required": true
+      },
+      {
+        "id": "HC03",
+        "label": "Quando percebeu o primeiro sintoma do problema principal? (data, idade aproximada ou não lembro)",
+        "type": "text",
+        "required": false
+      },
+      {
+        "id": "HC04",
+        "label": "Como estavam sua saúde e sua rotina antes de começar?",
+        "type": "textarea",
+        "required": false
+      },
+      {
+        "id": "HC05",
+        "label": "Começou de repente ou aos poucos? Qual foi o primeiro sintoma?",
+        "type": "textarea",
+        "required": false
+      },
+      {
+        "id": "HC06",
+        "label": "Desde que começou, o problema melhorou, piorou ou ficou igual? Houve períodos em que desapareceu?",
+        "type": "textarea",
+        "required": false
+      },
+      {
+        "id": "HC08",
+        "label": "Perto dessa época, houve algum acontecimento importante?",
+        "type": "textarea",
+        "required": false
+      },
+      {
+        "id": "HC09",
+        "label": "O que você acredita que pode estar relacionado ao problema?",
+        "type": "textarea",
+        "required": false
+      },
+      {
+        "id": "DF12",
+        "label": "Sua boca já travou e você não conseguia abrir como de costume?",
+        "type": "yes",
+        "required": false
+      },
+      {
+        "id": "DF12Detail",
+        "label": "Quando sua boca travou? Quanto tempo ficou assim? Isso aconteceu nos últimos 30 dias? Precisou de atendimento?",
+        "type": "textarea",
+        "required": false,
+        "parent": "DF12"
+      },
+      {
+        "id": "DF13",
+        "label": "Sua boca já ficou presa aberta, sem conseguir fechar?",
+        "type": "yes",
+        "required": false
+      },
+      {
+        "id": "DF13Detail",
+        "label": "Quando sua boca ficou presa aberta? Como conseguiu fechar? Precisou de ajuda ou atendimento?",
+        "type": "textarea",
+        "required": false,
+        "parent": "DF13"
+      }
+    ]
+  },
+  {
+    "title": "Seu mapa de dor",
+    "description": "Toque livremente nas imagens para marcar cada local onde sente dor.",
+    "fields": [
+      {
+        "id": "map",
+        "label": "Marque os pontos de dor",
+        "type": "map",
+        "required": false
+      },
+      {
+        "id": "mapDescription",
+        "label": "Descreva os locais difíceis de marcar, se a dor é leve, moderada ou forte e o que você sente. Você também pode usar este campo como alternativa ao desenho.",
+        "type": "textarea",
+        "required": false
+      }
+    ]
+  },
+  {
+    "title": "Sua história de vida",
+    "description": "Conte sua história por escrito, com todos os detalhes que considerar importantes.",
+    "fields": [
+      {
+        "id": "history",
+        "label": "Conte, com suas palavras, a história do seu problema e outros acontecimentos da sua vida que considere importantes. Se souber, você pode falar sobre seu nascimento, amamentação, doenças, quedas, acidentes e tratamentos. Não precisa lembrar de tudo nem seguir uma ordem.",
+        "type": "history",
+        "required": false
+      }
+    ]
+  }
+]

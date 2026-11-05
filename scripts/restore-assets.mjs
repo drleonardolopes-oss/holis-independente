@@ -1,0 +1,4 @@
+import fs from 'node:fs';import path from 'node:path';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'..');const manifest=JSON.parse(fs.readFileSync(path.join(root,'assets-source/manifest.json'),'utf8'));
+for(const item of manifest){const target=path.resolve(root,item.path);if(!target.startsWith(path.join(root,'public')+path.sep))throw Error('Destino invalido');const text=item.parts.map(p=>fs.readFileSync(path.join(root,p),'utf8')).join('');const bytes=gunzipSync(Buffer.from(text,'base64'));if(createHash('sha256').update(bytes).digest('hex')!==item.sha256)throw Error('Recurso corrompido');fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,bytes);}
+console.log('Recursos visuais e fontes conferidos.');

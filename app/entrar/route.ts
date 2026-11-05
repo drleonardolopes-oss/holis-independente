@@ -1,0 +1,1 @@
+import {redirect} from 'next/navigation';import {getChatGPTUser} from '../chatgpt-auth';export async function GET(){const u=await getChatGPTUser();if(!u)return new Response('Login não validado. Configure Cloudflare Access para proteger /entrar.',{status:401});redirect('/')}

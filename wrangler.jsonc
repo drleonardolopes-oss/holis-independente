@@ -1,0 +1,29 @@
+{
+  "name": "holis-independente",
+  "main": "build/sites-worker.ts",
+  "compatibility_date": "2026-10-27",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "holis-dados",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "holis-copias"
+    }
+  ],
+  "vars": {
+    "HOLIS_OWNER_EMAIL": "",
+    "ACCESS_ISSUER": "",
+    "ACCESS_AUDIENCE": "",
+    "CLINICAL_INTAKE_ENABLED": "false"
+  }
+}
